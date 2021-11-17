@@ -1,0 +1,37 @@
+<div class="card border-primary mb-3">
+  <div class="card-header">Encuestas</div>
+  <div class="card-body text-primary">
+    <div class="my-2 text-left">
+      <button class="btn btn-primary" type="button" [routerLink] = "['/encuestas/form']">Responder una encuesta</button>
+    </div>
+    <h5 class="card-title">Listado de respuestas</h5>
+
+    <div class="alert alert-info" *ngIf="encuestas?.length == 0">
+      No hay registros en la base de datos!
+    </div>
+    <table class="table table-bordered table-striped" *ngIf="encuestas?.length > 0">
+      <thead>
+        <tr>
+          <th>No. Documento</th>
+          <th>Correo electrónico</th>
+          <th>Comentarios</th>
+          <th>Marca de PC favorita</th>
+          <th>Fecha respuesta</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let encuesta of encuestas">
+          <td>{{encuesta.documento}}</td>
+          <td>{{encuesta.correo}}</td>
+          <td>{{encuesta.comentarios}}</td>
+          <td>{{encuesta.marcaPC.nombre}}</td>
+          <td>{{encuesta.fecha}}</td>
+          <td class="text-center">
+            <button type="button" name="descartar" class="btn btn-danger" (click)="descartar(encuesta)">Descartar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

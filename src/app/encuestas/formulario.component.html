@@ -1,0 +1,41 @@
+<div class="card text-white bg-dark my-4">
+  <div class="card-header">Encuesta</div>
+  <div class="card-body">
+    <form (ngSubmit) = "enviar()">
+      <div class="form-group row my-3">
+        <label for="documento" class="col-form-label col-sm-2">Número de documento</label>
+        <div class="col-sm-6">
+          <input type="text" class="form-control" [(ngModel)]="encuesta.documento" name="documento">
+        </div>
+      </div>
+      <div class="form-group row my-3">
+        <label for="correo" class="col-form-label col-sm-2">Correo electrónico</label>
+        <div class="col-sm-6">
+          <input type="text" class="form-control" [(ngModel)]="encuesta.correo" name="correo">
+        </div>
+      </div>
+      <div class="form-group row my-3">
+        <label for="comentarios" class="col-form-label col-sm-2">Comentarios</label>
+        <div class="col-sm-6">
+          <input type="text" class="form-control" [(ngModel)]="encuesta.comentarios" name="comentarios">
+        </div>
+      </div>
+      <div class="form-group row my-3">
+        <label for="marcaPC" class="col-form-label col-sm-2">Marca de PC favorita</label>
+        <div class="col-sm-6 my-1">
+          <select [(ngModel)]="encuesta.marcaPC" name="marcaPC">
+            <option *ngFor="let marca of marcasPC" [ngValue]="marca">{{marca.nombre}}</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group row my-3">
+        <div class="col-sm-6">
+          <button class="btn btn-primary" role="button">Enviar</button>
+
+        </div>
+      </div>
+    </form>
+
+  </div>
+
+</div>
