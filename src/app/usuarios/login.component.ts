@@ -25,12 +25,11 @@ export class LoginComponent implements OnInit {
 
   login(): void {
     if(this.usuario.username == null || this.usuario.password == null){
-      swal.fire('Error!', 'Usuario o password vacíos', 'error');
+      swal.fire('Error!', 'Usuario o password vacío', 'error');
       return;
     }
 
     this.authService.login(this.usuario).subscribe( response =>{
-      console.log(response);
       this.authService.guardarToken(response.access_token);
       this.router.navigate(['/encuestas']);
     }, err => {
